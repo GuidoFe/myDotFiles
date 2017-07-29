@@ -4,69 +4,74 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
 alias ls='ls --color=auto'
 alias weather='curl wttr.in/ferrara'
-#TYPES
-#di = directory; 
-#fi = file; 
-#ln = symbolicLink; 
-#pi = fifo file; 
-#so = socket file; 
-#bd = block special file; 
-#cd = character special file; 
-#or = orphan symbolic link; 
-#mi = non existent file pointed by a symbolic link;
-#ex = executable file;i
-#*.ext = file ending with ext
 
-#EFFECTS
-#0   = default colour
-#1   = bold
-#4   = underlined
-#5   = flashing text
-#7   = reverse field
-#8   = concealed
+LS_COLORS=$LS_COLORS:'di=1;36:pi=0;33:ex=0;91' ; export LS_COLORS
 
-#COLOURS
-#30  = black
-#31  = red
-#32  = green
-#33  = orange
-#34  = blue
-#35  = purple
-#36  = cyan
-#37  = grey
+#sym is the separator symbol
+#Colors:
+#Foreground: 30 black; 31 red; 32 green; 33 yellow; 34 blue; 35 purple; 36 cyan; 37 white; 90 lblack; 91 lred; 92 lgreen; 93 lyellow; 94 lblue; 95 lmagenta; 96 lcyan
+#Background: Foreground+10
+sym='\ue0b4'
 
-#BACKGROUNDS
-#40  = black background
-#41  = red background
-#42  = green background
-#43  = orange background
-#44  = blue background
-#45  = purple background
-#46  = cyan background
-#47  = grey background
+git_line(){
+	#It should be placed in the line to show current git repo, but doesn't work
+	git_path=""
+	if [ -d .git ]; then
+		git_path=".git"
+	else
+		git_path=`git rev-parse --git-dir 2> /dev/null`
+	fi
+	if [ $git_path = "" ]; then
+		echo $'\\001\e[1;37m\\002'
+	else
+		string=""
+		branch=`git branch | grep \* | cut -d ' ' -f2`
+		git diff --exit-code > /dev/null
+		unstaged=$?
+		git diff --cached --exit-code > /dev/null
+		uncommitted=$?
+		if [ $unstaged = 1 ] || [ $uncommitted = 1 ]; then
+			string=$'\\001\e[101;93m\\002 `echo -e $sym` \\001\e[1,90m\\002${branch} \\001\e[100;1;91m\\002'
+		else
+			string=$'\\001\e[102;93m\\002 `echo -e $sym` \\001\e[1,90m\\002${branch} \\001\e[100;1;92m\\002'
+		fi
+		echo $string
+	fi
+	
+}
 
-#EXTRA COLOURS
-#90  = dark grey
-#91  = light red
-#92  = light green
-#93  = yellow
-#94  = light blue
-#95  = light purple
-#96  = turquoisie
-#97  = white
-#100 = dark grey background
-#101 = light red background
-#102 = light green background
-#103 = yellow background
-#104 = light blue background
-#105 = light purple background
-#106 = turquoise background
-LS_COLORS=$LS_COLORS:'di=1;36:pi=0;33:ex=0,91' ; export LS_COLORS
+case ${TERM} in
+	*termite | *term | rxvt )	
+		PS1=$'\\[\e[106;1;90m\\] \u@\h '
+		PS1=${PS1}$'\\[\e[103;96m\\]`echo -e $sym`'
+		PS1=${PS1}$'\\[\e[1;90m\\] \W '
+		PS1=${PS1}$'\\[\e[100;93m\\]`echo -e $sym`'
+		PS1=${PS1}$'\\[\e[1;37m\\] \$ '
+		PS1=${PS1}$'\\[\e[40;90m\\]`echo -e $sym`'
+		PS1=${PS1}$'\\[\e[0m\\] '
+		;;
+	*)
+		PS1='\u@\h | \W | \$ '
+		;;
+esac
 
-PS1='[\u@\h \W]\$ '
+#case ${TERM} in
+#	*termite | *term | rxvt )	
+#		PS1=$'\\[\e[106;1;90m\\] \u@\h '
+#		PS1=${PS1}$'\\[\e[103;96m\\]`echo -e $sym`'
+#		PS1=${PS1}$'\\[\e[1;90m\\] \W '
+#		PS1=${PS1}$'\\[\e[100;93m\\]`echo -e $sym`'
+#		PS1=${PS1}$'\\[\e[1;37m\\] \$ '
+#		PS1=${PS1}$'\\[\e[40;90m\\]`echo -e $sym`'
+#		PS1=${PS1}$'\\[\e[0m\\] '
+#		;;
+#	*)
+#		PS1='\u@\h | \W | \$ '
+#		;;
+#esac
+
 
 PATH="/home/guidofe/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/guidofe/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;

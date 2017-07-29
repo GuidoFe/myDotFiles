@@ -6,3 +6,4 @@ if [ -f $icon ]; then
 	composite -gravity Center $HOME/.lock_icon.png /tmp/screen.jpg /tmp/screen.png
 fi
 i3lock -u -i /tmp/screen.png
+rm /tmp/screen.*

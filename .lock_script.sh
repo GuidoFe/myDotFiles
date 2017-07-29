@@ -1,5 +1,5 @@
 #!/bin/bash
-import -window root /tmp/screen.png
+import -window root /tmp/screen.jpg
 mogrify -blur 0x3 /tmp/screen.jpg
 icon="$HOME/.lock_icon.png"
 if [ -f $icon ]; then

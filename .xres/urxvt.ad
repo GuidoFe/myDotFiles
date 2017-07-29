@@ -1,0 +1,19 @@
+
+
+
+!#define bg	black
+!#define fg	lwhite
+!scroll in relation to buffer
+URxvt*scrollWithBuffer: true
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+URxvt.secondaryWheel: 1
+
+URxvt.background: black
+URxvt.foreground: lwhite
+
+URxvt.font: xft:RobotoMono Nerd Font:style=Medium:size=9, FontAwesome:style=Regular
+
+URxvt.scrollstyle: plain
+URxvt.scrollbar:true
+

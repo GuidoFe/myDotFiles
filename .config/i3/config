@@ -13,36 +13,36 @@ set $mod Mod4
 
 # Import colors from Xresources
 # Dark colors
-set_from_resource $black	i3wm.color0	#000000
-set_from_resource $red		i3wm.color1	#db0600
-set_from_resource $green	i3wm.color2	#55cf35
-set_from_resource $yellow	i3wm.color3	#ffdf38
-set_from_resource $blue		i3wm.color4	#5d58d7
-set_from_resource $magenta	i3wm.color5	#d758bd
-set_from_resource $cyan		i3wm.color6	#2ed1fe
-set_from_resource $white	i3wm.color7	#ebebeb
+set_from_resource $dcolor0	i3wm.color0	#000000
+set_from_resource $dcolor1	i3wm.color1	#db0600
+set_from_resource $dcolor2 	i3wm.color2	#55cf35
+set_from_resource $dcolor3 	i3wm.color3	#ffdf38
+set_from_resource $dcolor4 	i3wm.color4	#5d58d7
+set_from_resource $dcolor5 	i3wm.color5	#d758bd
+set_from_resource $dcolor6 	i3wm.color6	#2ed1fe
+set_from_resource $dcolor7 	i3wm.color7	#ebebeb
 
 # Bright colors
-set_from_resource $lblack	i3wm.color8	#3d3a40
-set_from_resource $lred		i3wm.color9	#ff251f
-set_from_resource $lgreen	i3wm.color10	#73d758
-set_from_resource $lyellow	i3wm.color11	#edff38
-set_from_resource $lblue	i3wm.color12	#5892d7
-set_from_resource $lmagenta	i3wm.color13	#ff75b6
-set_from_resource $lcyan	i3wm.color14	#2efef7
-set_from_resource $lwhite	i3wm.color15	#fefefe
+set_from_resource $lcolor0 	i3wm.color8	#3d3a40
+set_from_resource $lcolor1 	i3wm.color9	#ff251f
+set_from_resource $lcolor2 	i3wm.color10	#73d758
+set_from_resource $lcolor3 	i3wm.color11	#edff38
+set_from_resource $lcolor4 	i3wm.color12	#5892d7
+set_from_resource $lcolor5 	i3wm.color13	#ff75b6
+set_from_resource $lcolor6 	i3wm.color14	#FFFFFF
+set_from_resource $lcolor7 	i3wm.color15	#fefefe
 
 # Set i3 colors
 #
-# class			  	border  backgr.	text	indicat	child_border
+# class			  	border   backgr.  text	   indicat  child_border
 #---------------------------------------------------------------------------
- client.focused			$lcyan	$black	$black	$lcyan		$lcyan
- client.focused_inactive	$lblack	$black	$black	$lblack		$lblack
- client.unfocused		$lblack	$black	$white	$lblack		$lblack
- client.urgent			$red	$red	$lwhite	$lred		$red
- client.placeholder		$green	$green	$white	$green		$green
-
- client.background		$black
+ client.focused			$dcolor6 $dcolor0 $dcolor7 $dcolor6 $dcolor6
+ client.focused_inactive	$dcolor6 $dcolor0 $dcolor6 $dcolor6 $dcolor6  		
+ client.unfocused		$dcolor2 $dcolor0 $dcolor6 $dcolor2 $dcolor2   		
+ client.urgent			$lcolor7 $dcolor0 $dcolor7 $dcolor6 $lcolor7
+ client.placeholder		$dcolor6 $dcolor0 $dcolor7 $dcolor6 $dcolor6
+                                   
+ client.background		$dcolor0
 #----------------------------------------------------------------------------
 focus_follows_mouse yes
 
@@ -74,8 +74,8 @@ font xft:Roboto medium 10, awesome 10
 floating_modifier $mod
 
 # Set window border
-new_window pixel 3
-new_float pixel 3
+new_window pixel 2
+new_float pixel 2
 
 # none|vertical|horizontal|both|smart
 hide_edge_borders none
@@ -155,8 +155,8 @@ set $ws2 "2:"
 set $ws3 "3:"
 set $ws4 "4:"
 set $ws5 "5:"
-set $ws6 "6:"
-set $ws7 "7:"
+set $ws6 "6:"
+set $ws7 "7:"
 set $ws8 "8:"
 set $ws9 "9:"
 set $ws10 "10:"
@@ -217,7 +217,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
+bindsym Print exec scrot '%Y-%m-%d_%H%M%S.png' -e 'mv $f ~/Pictures/Screenshots'
 #Volume keys
 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-mute 0 false & pactl set-sink-volume 0 +5%

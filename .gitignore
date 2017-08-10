@@ -6,6 +6,7 @@
 .bash_logout
 .bashrc.swp
 .cache/
+.calcurse/
 .cataclysm-dda/
 .celestiarc
 .config/Foxit Software/
@@ -23,6 +24,7 @@
 .config/menus/
 .config/mimeapps.list
 .config/neofetch/
+.config/openBVE/
 .config/pulse/
 .config/qutebrowser/bookmarks/
 .config/qutebrowser/keys.conf
@@ -56,11 +58,14 @@
 .newsbeuter/
 .nv/
 .oh-my-zsh/
+.openttd/
+.pal/
 .pki/
 .python_history
 .python_history-00589.tmp
 .python_history-02563.tmp
 .python_history-10198.tmp
+.recently-used
 .renpy/
 .swn
 .swo
@@ -85,6 +90,7 @@
 Desktop/
 Documents/
 Downloads/
+Games/
 Pictures/
 PlayOnLinux's virtual drives
 Rice/

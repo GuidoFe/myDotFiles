@@ -2,14 +2,14 @@
 ! "Font to use" Set from: Default
  rofi.font:			Roboto Mono 12
 ! "Color scheme for normal row" bg,fg,bg alt,highlight bg,highlight fg
- rofi.color-normal:		black,lwhite,black,magenta,lwhite
+ rofi.color-normal:		dcolor0,dcolor7,dcolor0,dcolor3,dcolor7
 ! "Color scheme for window" bg,border color,separator color
- rofi.color-window:		black,lcyan,lwhite	
+ rofi.color-window:		dcolor0,dcolor3,dcolor2	
 ! "Border width" Set from: Default
  rofi.bw:			3 
 ! "Terminal to use" Set from: Default
- rofi.terminal:			urxvt
+ rofi.terminal:			termite
 ! "Separator style (none, dash, solid)" Set from: Default
- rofi.separator-style:		none
+ rofi.separator-style:		dash
 ! "Scrollbar width" Set from: Default
  rofi.scrollbar-width:		3

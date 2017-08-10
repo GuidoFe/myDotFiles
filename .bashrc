@@ -7,13 +7,13 @@
 alias ls='ls --color=auto'
 alias weather='curl wttr.in/ferrara'
 
-LS_COLORS=$LS_COLORS:'di=1;36:pi=0;33:ex=0;91' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'di=1;33:pi=0;33:ex=0;91' ; export LS_COLORS
 
 #sym is the separator symbol
 #Colors:
 #Foreground: 30 black; 31 red; 32 green; 33 yellow; 34 blue; 35 purple; 36 cyan; 37 white; 90 lblack; 91 lred; 92 lgreen; 93 lyellow; 94 lblue; 95 lmagenta; 96 lcyan
 #Background: Foreground+10
-sym='\ue0b4'
+sym='\ue0bc'
 
 git_line(){
 	#It should be placed in the line to show current git repo, but doesn't work

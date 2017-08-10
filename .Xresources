@@ -1,38 +1,39 @@
-#define black	#221e1f
-#define lblack	#363031
-#define red	#ab1d1b
-#define lred	#e24846
-#define pippo	#1bab1d
-#define lgreen	#46e248
-#define yellow	#a9ab1b
-#define lyellow	#dfe142
-#define blue	#1d1bab
-#define lblue	#4442e1
-#define magenta	#ab1ba9
-#define lmagenta #e246e0
-#define cyan	#1ba9ab
-#define lcyan	#46e0e2
-#define white	#ccd2d0
-#define lwhite	#f4f5f5
+#define dcolor0 #18202d
+#define dcolor1 #445363
+#define dcolor2 #566879
+#define dcolor3 #6b7d8d
+#define dcolor4 #8193a4
+#define dcolor5 #9db0c0
+#define dcolor6 #bfcbd7
+#define dcolor7 #e2e9ef
+#define lcolor0 #273449
+#define lcolor1 #55687c
+#define lcolor2 #687e92
+#define lcolor3 #8292a0
+#define lcolor4 #97a6b4
+#define lcolor5 #b4c3cf
+#define lcolor6 #d6dee5
+#define lcolor7 #fcfdfd
+#define red #6f260c
 
-*color0: black
-*color1: red
-*color2: green
-*color3: yellow
-*color4: blue
-*color5: magenta
-*color6: cyan
-*color7: white
+*color0:dcolor0
+*color1:dcolor1
+*color2:dcolor2
+*color3:dcolor3
+*color4:dcolor4
+*color5:dcolor5
+*color6:dcolor6
+*color7:dcolor7
 
-*color8: lblack
-*color9: lred
-*color10: lgreen
-*color11: lyellow
-*color12: lblue
-*color13: lmagenta
-*color14: lcyan
-*color15: lwhite
+*color8:lcolor0
+*color9:lcolor1
+*color10:lcolor2
+*color11:lcolor3
+*color12:lcolor4
+*color13:lcolor5
+*color14:lcolor6
+*color15:lcolor7
 
 #include "/home/guidofe/.xres/urxvt.ad"
-#include "/home/guidofe/.xres/dmenu.ad"
+#include "/home/guidofe/.xres/rofi.ad"
 

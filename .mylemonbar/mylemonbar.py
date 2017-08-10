@@ -20,11 +20,14 @@ def i3_plugin(i3, focused_color, unfocused_color, urgent_color, bg_color, focuse
     for ws in ws_list:
         string+="%{U"+u_color+"}%{F"
         if ws.urgent:
-            string += urgent_color + '}'
+            string += urgent_color
         elif ws.focused:
-            string += focused_color + '}%{B'+focused_bg_color+"}%{+u}"
+            string += focused_color
         else:
-            string += unfocused_color + '}'
+            string += unfocused_color
+        string+='}'
+        if ws.focused:
+            string += '%{B'+focused_bg_color+"}%{+u}"
         string += "  "+ws.name+"  "
         if ws.focused:
             string+="%{B"+bg_color+"}%{-u}"
@@ -37,57 +40,65 @@ def wifi_plugin(colors):
     symbol = 'X'
     color = '#FFFFFF'
     symbol= '#'
-    devices = NetworkManager.NetworkManager.GetAllDevices()
-    for device in devices:
-        if device.DeviceType == NetworkManager.NM_DEVICE_TYPE_WIFI:
-            state = device.State
-            #Failed state
-            if state <=20 or state == 120: 
-                color = colors["white"]
-                symbol = '%{B'+colors["red"]+"}%{+u}%{U"+colors["lred"]+"}"+'\uf1eb'+"%{F"+colors["lwhite"]+"}%{-u}"
-            #Connected state
-            elif state == 100:
-                color = colors["lwhite"]
-                power = device.ActiveAccessPoint.Strength
-                if power <=25:
+    try:
+        devices = NetworkManager.NetworkManager.GetAllDevices()
+        for device in devices:
+            if device.DeviceType == NetworkManager.NM_DEVICE_TYPE_WIFI:
+                state = device.State
+                #Failed state
+                if state <=20 or state == 120: 
+                    color = colors["white"]
+                    symbol = '%{F'+colors["red"]+"}"+'\uf1eb'+"%{F"+colors["dcolor7"]+"}%{-u}"
+                #Connected state
+                elif state == 100:
+                    color = colors["dcolor7"]
+                    power = device.ActiveAccessPoint.Strength
+                    if power <=25:
+                        symbol = '\uf1eb'
+                    elif power >= 75:
+                        symbol = '\uf1eb'
+                    else: 
+                        symbol = '\uf1eb'
+                #Disconnected state
+                elif state == 30:
+                    color = colors["dcolor3"]
+                    symbol = '\uf141'
+                #Generic transition state
+                else:
+                    color = colors["dcolor5"]
                     symbol = '\uf1eb'
-                elif power >= 75:
-                    symbol = '\uf1eb'
-                else: 
-                    symbol = '\uf1eb'
-            #Disconnected state
-            elif state == 30:
-                color = colors["white"]
-                symbol = '\uf141'
-            #Generic transition state
-            else:
-                color = colors["lyellow"]
-                symbol = '\uf1eb'
-            string = "%{F" + color + "}" + symbol + "%{F" + colors["lwhite"] + "}"
+    except:
+        color=colors["dcolor7"]
+        symbol= '\uf066'
+    string = "%{F" + color + "}" + symbol + "%{F" + colors["dcolor7"] + "}"
     return string
 
 def lan_plugin(colors):
-    devices = NetworkManager.NetworkManager.GetAllDevices()
-    for device in devices:
-        if device.DeviceType == NetworkManager.NM_DEVICE_TYPE_ETHERNET:
-            state = device.State
-            #Failed state
-            if state <=20 or state == 120: 
-                color = colors["white"]
-                symbol = '\uf127'
-            #Connected state
-            elif state == 100:
-                color = colors["lwhite"]
-                symbol = '\uf0c1'
-            #Disconnected state
-            elif state == 30:
-                color = colors["white"]
-                symbol = '\uf127'
-            #Generic transition state
-            else:
-                color = colors["lyellow"]
-                symbol = '\uf127'
-    string = "%{F" + color + "}" + symbol + "%{F" + colors["lwhite"] + "}"
+    try:
+        devices = NetworkManager.NetworkManager.GetAllDevices()
+        for device in devices:
+            if device.DeviceType == NetworkManager.NM_DEVICE_TYPE_ETHERNET:
+                state = device.State
+                #Failed state
+                if state <=20 or state == 120: 
+                    color = colors["dcolor3"]
+                    symbol = '\uf127'
+                #Connected state
+                elif state == 100:
+                    color = colors["dcolor7"]
+                    symbol = '\uf0c1'
+                #Disconnected state
+                elif state == 30:
+                    color = colors["dcolor3"]
+                    symbol = '\uf127'
+                #Generic transition state
+                else:
+                    color = colors["dcolor5"]
+                    symbol = '\uf127'
+    except:
+        color=colors["dcolor7"]
+        symbol= '\uf066'
+    string = "%{F" + color + "}" + symbol + "%{F" + colors["dcolor7"] + "}"
     return string
 
 def fixedLen(num):
@@ -100,13 +111,13 @@ def fixedLen(num):
 
 def clock_plugin(colors):
     t = time.strftime("%a %e %b  |  %I:%M %p")
-    string = '%{F'+colors["lwhite"]+'}'+t
+    string = '%{F'+colors["dcolor7"]+'}'+t
     return string
 
 def freespace_plugin(colors):
     info = os.statvfs("/var/")
     freespace = info.f_bsize * info.f_bavail/1024/1024/1024
-    string = "%{F"+colors["lwhite"]+"}"+"\uf1c0  "+"%.1f"%freespace+"Gb"
+    string = "%{F"+colors["dcolor7"]+"}"+"\uf1c0  "+"%.1f"%freespace+"Gb"
     return string
 
 def battery_plugin(colors,levelf,pluggedf):
@@ -125,13 +136,13 @@ def battery_plugin(colors,levelf,pluggedf):
     plugged=int(plugged)
     if level<100:
         if plugged:
-            string+=colors["lwhite"]
+            string+=colors["dcolor7"]
         elif level<=5:
-                string+=colors["lred"]
+                string+=colors["red"]
         else:
-            string+=colors["lwhite"]
+            string+=colors["dcolor7"]
     else:
-        string+=colors["lwhite"]
+        string+=colors["dcolor7"]
     string+="}"
     if plugged:
         string+='\uf1e6'
@@ -146,7 +157,7 @@ def battery_plugin(colors,levelf,pluggedf):
             string+='\uf241'
         else: 
             string+='\uf240'
-    string+="  "+str(level)+"%%{F"+colors["lwhite"]+"}"
+    string+="  "+str(level)+"%%{F"+colors["dcolor7"]+"}"
     return string
 
 def volume_plugin(colors):
@@ -163,7 +174,7 @@ def volume_plugin(colors):
         muted=True
     else:
         muted=False
-    string='%{F'+colors["lwhite"]+'}'
+    string='%{F'+colors["dcolor7"]+'}'
     if level>0 and not muted:
         if level>=50:
             string+='\uf028' 
@@ -171,20 +182,20 @@ def volume_plugin(colors):
             string+='\uf027'
     else:
         string+='\uf026'
-    string+="  %{F"+colors["lwhite"]+"}%3.0f"%level+'%'
+    string+="  %{F"+colors["dcolor7"]+"}%3.0f"%level+'%'
     return string
 
 def lock_plugin(colors,lock_script):
-    string="%{F"+colors["lyellow"]+"}%{A:sh "+lock_script+":}\uf023%{A}%{F"+colors["lwhite"]+"}"
+    string="%{F"+colors["dcolor7"]+"}%{A:sh "+lock_script+":}\uf023%{A}%{F"+colors["dcolor7"]+"}"
     return string
 def shutdown_plugin(colors):
-    string="%{F"+colors["lred"]+"}%{A:shutdown now:}%{A3:reboot:}\uf011%{A}%{A}"
+    string="%{F"+colors["dcolor5"]+"}%{A:shutdown now:}%{A3:reboot:}\uf011%{A}%{A}"
     return string
 
 def status(i3,levelf,pluggedf,colors):
     """Print the final string that will piped to lemonbar """
-    s="%{B"+colors['lblack']+"}%{F"+colors['lwhite']+"}%"
-    s+="{l}"+i3_plugin(i3,colors['lwhite'],colors['white'],colors['lred'],colors['lblack'],colors['magenta'],colors['lmagenta'])
+    s="%{B"+colors['dcolor1']+"}%{F"+colors['dcolor7']+"}%"
+    s+="{l}"+i3_plugin(i3,colors['dcolor7'],colors['dcolor7'],colors['red'],colors['dcolor1'],colors['dcolor3'],colors['dcolor3'])
     s+="%{c}"+clock_plugin(colors)+"%{r}"
     s+=wifi_plugin(colors)+"  |  "
     s+=volume_plugin(colors)+"  |  "

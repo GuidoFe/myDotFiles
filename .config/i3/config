@@ -32,6 +32,9 @@ set_from_resource $lcolor5 	i3wm.color13	#ff75b6
 set_from_resource $lcolor6 	i3wm.color14	#FFFFFF
 set_from_resource $lcolor7 	i3wm.color15	#fefefe
 
+
+
+
 # Set i3 colors
 #
 # class			  	border   backgr.  text	   indicat  child_border

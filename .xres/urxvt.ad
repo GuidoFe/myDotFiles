@@ -1,8 +1,6 @@
 
 
 
-!#define bg	black
-!#define fg	lwhite
 !scroll in relation to buffer
 URxvt*scrollWithBuffer: true
 URxvt.secondaryScreen: 1

@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/guidofe/.gtkrc-2.0.mine"
-gtk-theme-name="NumixSolarizedDarkBlue"
+gtk-theme-name="NumixStandard"
 gtk-icon-theme-name="Numix-Circle"
 gtk-font-name="DejaVu Sans 11"
 gtk-cursor-theme-name="Adwaita"

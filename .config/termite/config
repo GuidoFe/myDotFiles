@@ -7,7 +7,8 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = RobotoMono Nerd Font Medium 10
+font = Envy Code R 10
+#font = FontAwesome 11
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -20,7 +21,7 @@ cursor_blink = off
 cursor_shape = block
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
-browser = qutebrowser
+browser = firefox
 
 # set size hints for the window
 #size_hints = false
@@ -34,9 +35,9 @@ filter_unmatched_urls = true
 [colors]
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc
-foreground = #f4f5f5
-foreground_bold = #ffffff
-background = #221e1f
+foreground = #e7e7e7
+foreground_bold = #e7e7e7
+background = #020202
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
@@ -45,22 +46,23 @@ background = #221e1f
 highlight = #2f2f2f
 
 # colors from color0 to color254 can be set
-color0 = #221e1f
-color1 = #ab1d1b
-color2 = #1bab1d
-color3 = #a9ab1b
-color4 = #1d1bab
-color5 = #ab1ba9
-color6 = #1ba9ab
-color7 = #ccd2d0
-color8 = #363031
-color9 = #e24846
-color10 = #46e248
-color11 = #dfe142
-color12 = #4442e1
-color13 = #e246e0
-color14 = #46e0e2
-color15 = #f4f5f5
+
+color0 = #020202
+color8 = #262626
+color1 = #cf4a4a
+color9 = #da7272
+color2 = #4acf4a
+color10 = #72da72
+color3 = #cf8d4a
+color11 = #daa672
+color4 = #4a4acf
+color12 = #7272da
+color5 = #8d4acf
+color13 = #a672da
+color6 = #4acf8d
+color14 = #72daa6
+color7 = #cccccc
+color15 = #f2f2f2
 
 [hints]
 #font = Monospace 12
@@ -68,7 +70,7 @@ color15 = #f4f5f5
 #background = #3f3f3f
 #active_foreground = #e68080
 #active_background = #3f3f3f
-#padding = 2
+#padding = 20
 #border = #3f3f3f
 #border_width = 0.5
 #roundness = 2.0

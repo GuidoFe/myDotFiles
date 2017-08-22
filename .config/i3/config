@@ -36,15 +36,18 @@ set_from_resource $lwhite	i3wm.color15	#fefefe
 #
 # class			  	border  backgr.	text	indicat	child_border
 #---------------------------------------------------------------------------
- client.focused			$lcyan	$black	$black	$lcyan		$lcyan
+ client.focused			$red	$black	$black	$red		$red
  client.focused_inactive	$lblack	$black	$black	$lblack		$lblack
  client.unfocused		$lblack	$black	$white	$lblack		$lblack
- client.urgent			$red	$red	$lwhite	$lred		$red
+ client.urgent			$magenta	$magenta	$lwhite	$magenta		$magenta
  client.placeholder		$green	$green	$white	$green		$green
 
  client.background		$black
 #----------------------------------------------------------------------------
 focus_follows_mouse yes
+
+gaps inner 10
+gaps outer 5
 
 # Warp mouse when changing focus to a different output
 
@@ -57,7 +60,7 @@ workspace_auto_back_and_forth no
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:Roboto medium 10, awesome 10
+font xft:Envy Code R 10, awesome 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -226,8 +229,8 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 #Backlight keys
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec brightnessctl s 5+
+bindsym XF86MonBrightnessDown exec brightnessctl s 5-
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

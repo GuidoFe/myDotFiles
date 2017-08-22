@@ -10,7 +10,7 @@ URxvt.secondaryWheel: 1
 URxvt.background: black
 URxvt.foreground: lwhite
 
-URxvt.font: xft:RobotoMono Nerd Font:style=Medium:size=9, FontAwesome:style=Regular
+URxvt.font: xft:Envy Code R:size=10,RobotoMono Nerd Font:style=Medium:size=10
 
 URxvt.scrollstyle: plain
 URxvt.scrollbar:true

@@ -43,7 +43,7 @@ git_line(){
 }
 
 case ${TERM} in
-	*termite | *term | rxvt )	
+	*termite | *term | rxvt* )	
 		PS1=$'\\[\e[106;1;90m\\] \u@\h '
 		PS1=${PS1}$'\\[\e[103;96m\\]`echo -e $sym`'
 		PS1=${PS1}$'\\[\e[1;90m\\] \W '

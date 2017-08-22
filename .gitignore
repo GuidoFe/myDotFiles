@@ -49,6 +49,7 @@
 .gimp-2.8/
 .gitconfig
 .hnbrc
+.icons
 .lesshst
 .libpulseaudio/
 .local/
@@ -78,12 +79,11 @@
 .viminfo
 .wget-hsts
 .wine/
-.zcompdump
+.zcompdump*
 .zcompdump-Calcifer-5.3.1
 .zcompdump.zwc
 .zsh-update
 .zsh_history
-.zshrc
 .zshrc.pre-oh-my-zsh
 Desktop/
 Documents/
@@ -97,3 +97,14 @@ a.jpg
 b.jpg
 output.jpg
 perl5/
+.alarm.wav
+.config/Pinta
+.config/fontconfig
+.config/geogebra
+.config/rtv/
+.gcalcli*
+.histfile
+.java/
+.mozilla/
+Uni/
+.zhistory

@@ -1,19 +1,19 @@
-#define black	#221e1f
-#define lblack	#363031
-#define red	#ab1d1b
-#define lred	#e24846
-#define pippo	#1bab1d
-#define lgreen	#46e248
-#define yellow	#a9ab1b
-#define lyellow	#dfe142
-#define blue	#1d1bab
-#define lblue	#4442e1
-#define magenta	#ab1ba9
-#define lmagenta #e246e0
-#define cyan	#1ba9ab
-#define lcyan	#46e0e2
-#define white	#ccd2d0
-#define lwhite	#f4f5f5
+#define black	#020202
+#define lblack	#262626
+#define red	#cf4a4a
+#define lred	#da7272
+#define green	#4acf4a
+#define lgreen	#72da72
+#define yellow	#cf8d4a
+#define lyellow	#daa672
+#define blue	#4a4acf
+#define lblue	#7272da
+#define magenta	#8d4acf
+#define lmagenta #a672da
+#define cyan	#4acf8d
+#define lcyan	#72daa6
+#define white	#cccccc
+#define lwhite	#f2f2f2
 
 *color0: black
 *color1: red
@@ -34,5 +34,5 @@
 *color15: lwhite
 
 #include "/home/guidofe/.xres/urxvt.ad"
-#include "/home/guidofe/.xres/dmenu.ad"
+#include "/home/guidofe/.xres/rofi.ad"
 

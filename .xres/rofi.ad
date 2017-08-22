@@ -1,6 +1,6 @@
- rofi.padding:			10
+ rofi.padding:			20
 ! "Font to use" Set from: Default
- rofi.font:			Roboto Mono 12
+ rofi.font:			Envy Code R Regular 12
 ! "Color scheme for normal row" bg,fg,bg alt,highlight bg,highlight fg
  rofi.color-normal:		black,lwhite,black,red,lwhite
 ! "Color scheme for window" bg,border color,separator color
@@ -13,3 +13,4 @@
  rofi.separator-style:		dash
 ! "Scrollbar width" Set from: Default
  rofi.scrollbar-width:		3
+ rofi.width: 384

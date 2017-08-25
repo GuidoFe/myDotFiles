@@ -20,8 +20,7 @@
 !.config/gtk-2.0/*
 !.config/gtk-3.0/*
 !.config/i3/config
-!.config/neofetch/*
-!.config/qutebrowser/*
+!.config/neofetch/config
 !.config/ranger/*
 !.config/rofi/*
 !.config/termite/*
@@ -30,3 +29,13 @@
 !.zprezto/modules/environment/init.zsh
 
 !*/
+
+Downloads/
+Games/
+go/
+.config/gtk-2.0/
+.vim/
+.config/ranger/bookmarks
+.config/ranger/history
+.config/ranger/tagged
+.zhistory

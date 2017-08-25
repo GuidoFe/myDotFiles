@@ -192,17 +192,17 @@ def status(i3,levelf,pluggedf,colors):
     #clock_plugin(fg_color)
     s+="%{c}"+clock_plugin(fg_color)+"%{r}"
     #wifi_plugin(fg_color, connected_color, failed_color, disconnected_color, transition_color)
-    s+=wifi_plugin(fg_color,fg_color,colors["lred"],colors["white"],colors["yellow"])+" | "
+    s+=wifi_plugin(fg_color,fg_color,colors["lred"],colors["white"],colors["yellow"])+"   "
     #volume_plugin(fg_color)
-    s+=volume_plugin(fg_color)+" | "
+    s+=volume_plugin(fg_color)+"   "
     #lan_plugin(fg_color, connected_color, failed_color, disconnected_color, transition_color)
-    s+=lan_plugin(fg_color,fg_color,colors["white"],colors["white"],colors["yellow"])+" | "
+    s+=lan_plugin(fg_color,fg_color,colors["white"],colors["white"],colors["yellow"])+"   "
     #freespace_plugin(fg_color)
-    s+=freespace_plugin(fg_color)+" | "
+    s+=freespace_plugin(fg_color)+"   "
     #battery_plugin(fg_color,plugged_color, unplugged_color,low_color,full_color,levelf,pluggedf)
-    s+=battery_plugin(fg_color,fg_color,fg_color,colors["lred"],fg_color,levelf,pluggedf)+" | "
+    s+=battery_plugin(fg_color,fg_color,fg_color,colors["lred"],fg_color,levelf,pluggedf)+"   "
     #lock_plugin(fg_color,lock_script)
-    s+=lock_plugin(fg_color,os.path.expanduser("~")+"/.lock_script.sh")+" "
+    s+=lock_plugin(fg_color,os.path.expanduser("~")+"/.lock_script.sh")+"   "
     #shutdown_plugin(button_color, fg_color, bg_color
     s+=shutdown_plugin(colors["red"],fg_color,bg_color)
     return s
